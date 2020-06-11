@@ -21,13 +21,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        userViewModel = new  ViewModelProvider(this).get(UserViewModel.class);
-        userViewModel.getAllUsers().observe(this, new Observer<List<User>>() {
-            @Override
-            public void onChanged(List<User> users) {
-                Toast.makeText(MainActivity.this, "OnChange", Toast.LENGTH_SHORT).show();
-            }
-        });
+
         //todo 1 you must watch part 5 code flow
 
         // connect between vModel and View

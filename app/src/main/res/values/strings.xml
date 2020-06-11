@@ -7,4 +7,5 @@
     <string name="name_dammy">Dr. Kenneth J. Phillips</string>
     <string name="age">Age 25 </string>
     <string name="gender">Male</string>
+    <string name="add">Add</string>
 </resources>
