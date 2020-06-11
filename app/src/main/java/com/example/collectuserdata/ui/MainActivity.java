@@ -22,11 +22,5 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        //todo 1 you must watch part 5 code flow
-
-        // connect between vModel and View
-
-
-
     }
 }
