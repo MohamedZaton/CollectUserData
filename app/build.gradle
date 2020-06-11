@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: "androidx.navigation.safeargs"
 
 android {
     compileSdkVersion 29
@@ -27,16 +28,18 @@ dependencies {
     def room_version = "2.2.5"
     def lifecycle_version = "2.2.0"
     def arch_version = "2.1.0"
+    def nav_version = "2.3.0-alpha04"
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-     // Desgin Pattern
-        // ViewModel
+    // *Desgin Pattern
+    // ViewModel
         implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
         // LiveData
         implementation "androidx.lifecycle:lifecycle-livedata:$lifecycle_version"
@@ -61,28 +64,43 @@ dependencies {
         implementation "androidx.lifecycle:lifecycle-reactivestreams:$lifecycle_version"
 
 
+        //*DB Room
+            implementation "androidx.room:room-runtime:$room_version"
+            annotationProcessor "androidx.room:room-compiler:$room_version"
+            // For Kotlin use kapt instead of annotationProcessor
 
+            // optional - Kotlin Extensions and Coroutines support for Room
+            implementation "androidx.room:room-ktx:$room_version"
 
-    //DB Room
-        implementation "androidx.room:room-runtime:$room_version"
-        annotationProcessor "androidx.room:room-compiler:$room_version" // For Kotlin use kapt instead of annotationProcessor
+            // optional - RxJava support for Room
+            implementation "androidx.room:room-rxjava2:$room_version"
 
-        // optional - Kotlin Extensions and Coroutines support for Room
-        implementation "androidx.room:room-ktx:$room_version"
+            // optional - Guava support for Room, including Optional and ListenableFuture
+            implementation "androidx.room:room-guava:$room_version"
 
-        // optional - RxJava support for Room
-        implementation "androidx.room:room-rxjava2:$room_version"
+    //*Navgation graph
 
-        // optional - Guava support for Room, including Optional and ListenableFuture
-        implementation "androidx.room:room-guava:$room_version"
+        // Java language implementation
+        implementation "androidx.navigation:navigation-fragment:$nav_version"
+        implementation "androidx.navigation:navigation-ui:$nav_version"
 
+        // Kotlin
+        implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+        implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+        // Dynamic Feature Module Support
+        implementation "androidx.navigation:navigation-dynamic-features-fragment:$nav_version"
+
+    //*image cycle
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 
     // Testing part
 
-        // Test helpers
-        testImplementation "androidx.room:room-testing:$room_version"
-        // optional - Test helpers for LiveData
-        testImplementation "androidx.arch.core:core-testing:$arch_version"
+    // Test helpers
+    testImplementation "androidx.room:room-testing:$room_version"
+    // optional - Test helpers for LiveData
+    testImplementation "androidx.arch.core:core-testing:$arch_version"
+    androidTestImplementation "androidx.navigation:navigation-testing:$nav_version"
 
 
 }

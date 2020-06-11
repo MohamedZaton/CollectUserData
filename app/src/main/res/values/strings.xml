@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">CollectUserData</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="job_dammy">Cardiologist</string>
+    <string name="name_dammy">Dr. Kenneth J. Phillips</string>
+    <string name="age">Age 25 </string>
+    <string name="gender">Male</string>
 </resources>
